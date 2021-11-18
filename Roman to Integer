@@ -1,0 +1,11 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        ht={"I":1, "V":5, "X":10, "L":50,"C":100,"D":500,"M":1000}
+        value=0
+        for i in range(len(s)-1):               # incase i+1 out of str index boundary 
+            if (ht[s[i]] >= ht[s[i+1]]):        # value greater than the next character => positive
+                value += ht[s[i]]                 
+            else: 
+                value -= ht[s[i]]               # value less than the next character=> negative                 
+        return value + ht[s[len(s)-1]]          # last character value is always positive  
+            
