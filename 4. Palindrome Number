@@ -1,0 +1,17 @@
+class Solution:
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x<0: 
+            return False 
+        reminder = 0
+        reverted = 0
+        n=x
+        while(n!=0):
+            reminder = n %10
+            reverted = reverted*10 +reminder
+            n=int(n/10)
+      
+        return reverted == x
